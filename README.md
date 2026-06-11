@@ -212,4 +212,5 @@ ecommerce-generator/
 * **Build Engine**: Vite (v8)
 * **Visualizations**: Chart.js & React-ChartJS-2
 * **Styling Sheets**: Raw CSS design tokens
-* **AI Model Engine**: Ollama (Llama 3.2 local server)
+* **AI Model Engine**: Ollama (Llama 3.2 local server)#   D u k a a n _ A I  
+ 
