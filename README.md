@@ -1,10 +1,38 @@
 # 🏪 Dukaan AI — Prompt-Driven E-Commerce Generator
 
+Dukaan AI is an intelligent, prompt-driven e-commerce store builder. By entering a simple description of your desired store (e.g., *"Create a luxury sneaker store with a dark black and red theme"*), Dukaan AI parses the requirement and compiles a fully customized storefront, an admin ERP dashboard, an interactive mobile app simulator, and an AI-powered shopping assistant.
+
+---
+
 > [!IMPORTANT]
 > **Project Status: Under Active Development** 🛠️  
 > This project is currently in the prototyping phase. Features, prompt parsing models, and AI integrations are actively being developed, refactored, and optimized.
 
-Dukaan AI is an intelligent, prompt-driven e-commerce store generator. By entering a simple description of your desired store (e.g., *"Create a luxury sneaker store with a dark black and red theme"*), Dukaan AI parses the requirement and compiles a fully customized storefront, an admin ERP dashboard, an interactive mobile app simulator, and an AI-powered shopping assistant.
+---
+
+## 📖 Table of Contents
+1. [Key Features](#-key-features)
+2. [Quick Start Guide](#-quick-start-guide)
+3. [Detailed Feature Audit](#-detailed-feature-audit)
+4. [Project File Structure](#-project-file-structure)
+5. [Tech Stack](#-tech-stack)
+6. [Current Gaps & Troubleshooting](#-current-gaps--troubleshooting)
+7. [Production SaaS Roadmap](#-production-saas-roadmap)
+8. [Phased Action Plan](#-phased-action-plan)
+
+---
+
+## ✨ Key Features
+
+* **Prompt-to-Store Compiler**: Parses natural language inputs into store configurations (Names, Categories, Color Palettes, Design Styles, and Layout Densities) without requiring manual setup.
+* **10 Custom Design Identities**: Features 10 distinct UI sub-themes (Classic Premium, Tech Precision, Glass Morphism, Neo Brutalist, etc.) with custom layouts, paddings, typography, and card transitions.
+* **Average Color Logo Matching**: Upload your logo URL, and Dukaan AI will analyze the image pixels using canvas extraction to dynamically theme the website accents to match your brand logo.
+* **Interactive Shopping Flow**: Includes a catalog grid, search and filtering (by price, rating, and categories), product details, wishlist collections, shopping cart operations, and a payment checkout simulation.
+* **ERP Admin Dashboard**: A control panel featuring real-time transaction tracking, simulated sales analytics charts (Line and Bar visualizations via Chart.js), order list ledgers, catalog stock control, and logo/cover configuration tools.
+* **Mobile App Simulator & Code Generator**: Embeds an interactive phone iframe displaying how the store looks on mobile. Automatically outputs clean React Native (Expo) code for your design that you can scan and run instantly on your physical phone via Expo Go or Expo Snack.
+* **Dual-Mode AI Chatbot**:
+  * *Shopping Mode*: Recommends products, answers questions about the catalog, and executes commands (like adding items to cart or initiating checkout).
+  * *Design Editor Mode*: Listens to styling instructions (e.g., *"make it dark mode with a purple layout"*) and updates the storefront layout in real time.
 
 ---
 
@@ -25,7 +53,7 @@ Dukaan AI relies on a local instance of Ollama to generate store tags, taglines,
    ```
 2. Keep this terminal open so the local Ollama API (`http://localhost:11434`) remains accessible.
 
-### Step 2: Install & Start the Frontend
+### Step 2: Install & Start the Storefront
 1. Open another terminal and navigate to the project directory:
    ```bash
    cd ecommerce-generator
@@ -42,7 +70,7 @@ Dukaan AI relies on a local instance of Ollama to generate store tags, taglines,
 
 ---
 
-## ✨ Detailed Feature Audit
+## 🔎 Detailed Feature Audit
 
 Dukaan AI is composed of several modules working together to build and simulate the e-commerce experience:
 
@@ -93,20 +121,47 @@ Dukaan AI is composed of several modules working together to build and simulate 
 
 ---
 
-## 🛠️ Areas for Improvement (Development Roadmap)
-
-To transition Dukaan AI from an interactive prototype to a production-ready SaaS product, several key improvements are planned:
-
-1. **Cloud AI Services**: Replace local Ollama dependencies with managed cloud API routes (e.g. Gemini API, OpenAI API) so deployed instances can run the chatbot without requiring a local server.
-2. **LLM-First Configuration**: Let the LLM generate the full design JSON configuration from the prompt during onboarding, replacing the regex keyword search.
-3. **Consistent Product Images**: Integrate image generation pipelines (e.g., Stable Diffusion or Imagen) to generate matching product assets instead of using static placeholder search tags.
-4. **State Persistence**: Transition state management from browser `localStorage` to a hosted database (e.g. PostgreSQL, Supabase).
+## 📂 Project File Structure
+```text
+ecommerce-generator/
+├── src/
+│   ├── components/      # UI elements (Navbar, Product Cards, Cart, Chatbot)
+│   ├── context/         # AppContext.jsx managing global state (cart, products, orders)
+│   ├── hooks/           # useTheme, useVariant, useScrollReveal hooks
+│   ├── pages/           # StoreFront, Browse, Details, Checkout, Dashboard, MobileApp
+│   ├── utils/           # Mock data generators, prompt parsing, Ollama API wrappers
+│   ├── App.jsx          # Main page switcher and router layout
+│   └── main.jsx         # App entry point
+├── index.html           # HTML wrapper template
+└── package.json         # NPM package dependencies (React 19, Vite 8, Chart.js)
+```
 
 ---
 
-## 🏗️ Production System Architecture
+## 🛠️ Tech Stack
+* **Frontend Framework**: React (v19)
+* **Build Engine**: Vite (v8)
+* **Visualizations**: Chart.js & React-ChartJS-2
+* **Styling Sheets**: Raw CSS design tokens
+* **AI Model Engine**: Ollama (Llama 3.2 local server)
 
-When scaled, Dukaan AI's architecture will utilize microservices to ensure scale:
+---
+
+## ⚠️ Current Gaps & Troubleshooting
+
+### 1. Ollama Connection Issues
+* **Symptom**: Chatbot responses are generic and say "using templates", or tagline/colors do not generate.
+* **Solution**: Ensure Ollama is running (`ollama run llama3.2`) before clicking "Generate" or loading the page. You can verify that Ollama is accessible by visiting `http://localhost:11434` in your browser.
+
+### 2. Mixed Content Warnings
+* **Symptom**: Logo images do not load or show CORS errors.
+* **Solution**: Ensure your logo URLs point to CORS-enabled public images. Logo color extraction requires access to image pixel data via canvas, which can be blocked by standard CORS rules.
+
+---
+
+## 🏗️ Production SaaS Roadmap
+
+To transition Dukaan AI from an interactive prototype to a production-ready SaaS product, the following architecture is planned:
 
 ```
 [ Customer Web Browser ]     [ Merchant Dashboard ]
@@ -169,7 +224,7 @@ sequenceDiagram
 
 ---
 
-## 📅 Phased Execution Plan
+## 📅 Phased Action Plan
 
 ```carousel
 ### Phase 1: Core SaaS Foundation
@@ -187,30 +242,3 @@ sequenceDiagram
 * Configure Next.js static site generator builds on CDN edges.
 * Enable background workers to run EAS CLI builds for compiling mobile app installer files.
 ```
-
----
-
-## 📂 Project File Structure
-```text
-ecommerce-generator/
-├── src/
-│   ├── components/      # UI elements (Navbar, Product Cards, Cart, Chatbot)
-│   ├── context/         # AppContext.jsx managing global state (cart, products, orders)
-│   ├── hooks/           # useTheme, useVariant, useScrollReveal hooks
-│   ├── pages/           # StoreFront, Browse, Details, Checkout, Dashboard, MobileApp
-│   ├── utils/           # Mock data generators, prompt parsing, Ollama API wrappers
-│   ├── App.jsx          # Main page switcher and router layout
-│   └── main.jsx         # App entry point
-├── index.html           # HTML wrapper template
-└── package.json         # NPM package dependencies (React 19, Vite 8, Chart.js)
-```
-
----
-
-## 🛠️ Tech Stack
-* **Frontend Framework**: React (v19)
-* **Build Engine**: Vite (v8)
-* **Visualizations**: Chart.js & React-ChartJS-2
-* **Styling Sheets**: Raw CSS design tokens
-* **AI Model Engine**: Ollama (Llama 3.2 local server)#   D u k a a n _ A I  
- 
