@@ -1,4 +1,4 @@
-# 🏪 Dukaan AI — Prompt-Driven E-Commerce Generator
+# Dukaan AI — Prompt-Driven E-Commerce Generator
 
 Dukaan AI is an intelligent, prompt-driven e-commerce store builder. By entering a simple description of your desired store (e.g., *"Create a luxury sneaker store with a dark black and red theme"*), Dukaan AI parses the requirement and compiles a fully customized storefront, an admin ERP dashboard, an interactive mobile app simulator, and an AI-powered shopping assistant.
 
@@ -10,7 +10,7 @@ Dukaan AI is an intelligent, prompt-driven e-commerce store builder. By entering
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 1. [Key Features](#-key-features)
 2. [Quick Start Guide](#-quick-start-guide)
 3. [Detailed Feature Audit](#-detailed-feature-audit)
@@ -22,7 +22,7 @@ Dukaan AI is an intelligent, prompt-driven e-commerce store builder. By entering
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 * **Prompt-to-Store Compiler**: Parses natural language inputs into store configurations (Names, Categories, Color Palettes, Design Styles, and Layout Densities) without requiring manual setup.
 * **10 Custom Design Identities**: Features 10 distinct UI sub-themes (Classic Premium, Tech Precision, Glass Morphism, Neo Brutalist, etc.) with custom layouts, paddings, typography, and card transitions.
@@ -36,7 +36,7 @@ Dukaan AI is an intelligent, prompt-driven e-commerce store builder. By entering
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 To run the project locally, ensure you have the prerequisites installed, then follow the setup steps below.
 
@@ -70,7 +70,7 @@ Dukaan AI relies on a local instance of Ollama to generate store tags, taglines,
 
 ---
 
-## 🔎 Detailed Feature Audit
+## Detailed Feature Audit
 
 Dukaan AI is composed of several modules working together to build and simulate the e-commerce experience:
 
@@ -121,7 +121,7 @@ Dukaan AI is composed of several modules working together to build and simulate 
 
 ---
 
-## 📂 Project File Structure
+## Project File Structure
 ```text
 ecommerce-generator/
 ├── src/
@@ -138,7 +138,7 @@ ecommerce-generator/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Frontend Framework**: React (v19)
 * **Build Engine**: Vite (v8)
 * **Visualizations**: Chart.js & React-ChartJS-2
@@ -147,7 +147,7 @@ ecommerce-generator/
 
 ---
 
-## ⚠️ Current Gaps & Troubleshooting
+## Current Gaps & Troubleshooting
 
 ### 1. Ollama Connection Issues
 * **Symptom**: Chatbot responses are generic and say "using templates", or tagline/colors do not generate.
@@ -159,7 +159,7 @@ ecommerce-generator/
 
 ---
 
-## 🏗️ Production SaaS Roadmap
+## Production SaaS Roadmap
 
 To transition Dukaan AI from an interactive prototype to a production-ready SaaS product, the following architecture is planned:
 
@@ -224,7 +224,7 @@ sequenceDiagram
 
 ---
 
-## 📅 Phased Action Plan
+## Phased Action Plan
 
 ```carousel
 ### Phase 1: Core SaaS Foundation
