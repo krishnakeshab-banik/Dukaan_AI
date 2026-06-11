@@ -242,3 +242,33 @@ sequenceDiagram
 * Configure Next.js static site generator builds on CDN edges.
 * Enable background workers to run EAS CLI builds for compiling mobile app installer files.
 ```
+
+---
+## Project File Structure
+```text
+ecommerce-generator/
+├── src/
+│   ├── components/      # UI elements (Navbar, Product Cards, Cart, Chatbot)
+│   ├── context/         # AppContext.jsx managing global state (cart, products, orders)
+│   ├── hooks/           # useTheme, useVariant, useScrollReveal hooks
+│   ├── pages/           # StoreFront, Browse, Details, Checkout, Dashboard, MobileApp
+│   ├── utils/           # Mock data generators, prompt parsing, Ollama API wrappers
+│   ├── App.jsx          # Main page switcher and router layout
+│   └── main.jsx         # App entry point
+├── index.html           # HTML wrapper template
+└── package.json         # NPM package dependencies (React 19, Vite 8, Chart.js)
+```
+
+---
+## Tech Stack
+* **Frontend Framework**: React (v19)
+* **Build Engine**: Vite (v8)
+* **Visualizations**: Chart.js & React-ChartJS-2
+* **Styling Sheets**: Raw CSS design tokens
+* **AI Model Engine**: Ollama (Llama 3.2 local server)
+
+
+
+
+
+
